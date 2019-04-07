@@ -1,0 +1,22 @@
+package com.hncy.service.client.domain;
+
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class User {
+
+    private Integer id;
+    private Integer version;
+    private String username;
+    private String password;
+    private String fullname;
+    private String roles;
+    private String app;
+
+}

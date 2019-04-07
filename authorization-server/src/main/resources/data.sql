@@ -1,0 +1,2 @@
+INSERT INTO oauth_client_details (client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, authorities, access_token_validity, refresh_token_validity, additional_information, autoapprove)
+VALUES ('client', 'user_api', '419feeece1c5630c08b143ea09b794de2a0eff87a73b9116a27e1d10f2ea42c5b426b92693714a19', 'read,write', 'authorization_code,client_credentials', 'http://localhost:7070/login', null, 3600, 3600, null, null);

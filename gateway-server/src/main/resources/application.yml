@@ -1,0 +1,45 @@
+server:
+  address: localhost
+  port: 8080
+
+zuul:
+  ignoredServices: '*'
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    resource:
+      path: /resource/**
+      serviceId: resource-server
+    oauth:
+      path: /oauth/**
+      serviceId: authorization-server
+
+ribbon:
+  eureka:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, health
+
+spring:
+  application:
+    name: gateway-server
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1
+  thymeleaf:
+    cache: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    preferIpAddress: true
+    ipAddress: ${server.address}
+    instanceId: ${server.address}:${server.port}
